@@ -32,9 +32,12 @@ function onWindowLoad() {
 
 function copyText() {
   var copyText = document.getElementsByClassName("form__field")[0];
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  var url = window.location.href + "?name=" + copyText.value;
+  var crushName = copyText.value.trim();
+  if (crushName === "") {
+    alert("Please enter a value before copying.");
+    return;
+  }
+  var url = window.location.href + "?name=" + crushName;
   navigator.clipboard.writeText(url);
   alert("URL Copied");
 }

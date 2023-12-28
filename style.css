@@ -24,6 +24,7 @@ body {
   text-align: center;
   max-width: 700px;
   margin: 1em auto;
+  padding:  0 0.5em;
 }
 
 .uppercase {
@@ -81,7 +82,7 @@ body {
 }
 
 .form__field {
-  width: 20em;
+  max-width: 20em;
   background: var(--input-bg-color);
   color: var(--input-text-color);
   font: inherit;
@@ -127,7 +128,7 @@ body {
 }
 
 #cat {
-  width: 18em;
-  height: 18em;
+  max-width: 18em;
+  max-height: 18em;
   animation: bounce 2s infinite;
 }
