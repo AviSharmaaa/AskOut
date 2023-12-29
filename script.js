@@ -17,6 +17,9 @@ function onWindowLoad() {
     yesButton.addEventListener("click", function () {
       showConfiteeGif();
     });
+    noButton.addEventListener("mouseover", function () {
+      changeButtonPosition();
+    });
     noButton.addEventListener("click", function () {
       changeButtonPosition();
     });
@@ -33,13 +36,14 @@ function onWindowLoad() {
 function copyText() {
   var copyText = document.getElementsByClassName("form__field")[0];
   var crushName = copyText.value.trim();
-  if (crushName === "") {
-    alert("Please enter a value before copying.");
+  var matchString = /^[a-zA-Z\s]+$/.test(crushName);
+  if (crushName === "" || !matchString) {
+    alert("Please enter a valid name.");
     return;
   }
   var url = window.location.href + "?name=" + crushName;
   window.navigator.clipboard.writeText(url);
-  alert("URL Copied");
+  prompt("Copy this link and send it to your Crush", url);
 }
 
 function showConfiteeGif() {
@@ -71,6 +75,4 @@ function changeButtonPosition() {
   noButton.style.top = randomY + "px";
 }
 
-window.onload = function () {
-  onWindowLoad();
-};
+window.onload = onWindowLoad;
