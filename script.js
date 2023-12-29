@@ -38,7 +38,7 @@ function copyText() {
     return;
   }
   var url = window.location.href + "?name=" + crushName;
-  navigator.clipboard.writeText(url);
+  window.navigator.clipboard.writeText(url);
   alert("URL Copied");
 }
 
